@@ -138,7 +138,7 @@ public class SkyboxBlender : MonoBehaviour
         {
             fromSkybox = GetSkyboxForWeather(previousWeather);
             toSkybox = GetSkyboxForWeather(currentWeather);
-            blendFactor = weatherBlendTimer / weatherBlendDuration;
+            blendFactor = Mathf.SmoothStep(0f, 1f, weatherBlendTimer / weatherBlendDuration);
         }
         else
         {
@@ -148,25 +148,25 @@ public class SkyboxBlender : MonoBehaviour
                 {
                     fromSkybox = nightSkybox;
                     toSkybox = morningSkybox;
-                    blendFactor = time / 0.25f;
+                    blendFactor = Mathf.SmoothStep(0f, 1f, time / 0.25f);
                 }
                 else if (time < 0.5f)
                 {
                     fromSkybox = morningSkybox;
                     toSkybox = noonSkybox;
-                    blendFactor = (time - 0.25f) / 0.25f;
+                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 0.25f) / 0.25f);
                 }
                 else if (time < 0.75f)
                 {
                     fromSkybox = noonSkybox;
                     toSkybox = eveningSkybox;
-                    blendFactor = (time - 0.5f) / 0.25f;
+                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 0.5f) / 0.25f);
                 }
                 else
                 {
                     fromSkybox = eveningSkybox;
                     toSkybox = nightSkybox;
-                    blendFactor = (time - 0.75f) / 0.25f;
+                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 0.75f) / 0.25f);
                 }
             }
             else if (currentWeather == WeatherType.Rainy)
