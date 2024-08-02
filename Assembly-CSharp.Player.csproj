@@ -879,29 +879,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
-      <Project>{389F8883-18A0-04CA-3E04-236E1249B881}</Project>
-      <Name>Unity.VisualScripting.Core.Player</Name>
+    <ProjectReference Include="Unity.Timeline.Player.csproj">
+      <Project>{BBDFC6C0-3323-D009-2C59-B685BE7F6501}</Project>
+      <Name>Unity.Timeline.Player</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.UI.Player.csproj">
       <Project>{323D9120-73B4-0B69-8099-F067DED52643}</Project>
       <Name>UnityEngine.UI.Player</Name>
     </ProjectReference>
-    <ProjectReference Include="Unity.VisualScripting.Flow.Player.csproj">
-      <Project>{7D97E193-D7E6-90BF-F3F9-A9407FAF1AEC}</Project>
-      <Name>Unity.VisualScripting.Flow.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.Timeline.Player.csproj">
-      <Project>{BBDFC6C0-3323-D009-2C59-B685BE7F6501}</Project>
-      <Name>Unity.Timeline.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
       <Project>{1C00A672-20CF-19B5-6547-1FA09DBCE84D}</Project>
       <Name>Unity.TextMeshPro.Player</Name>
     </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
+      <Project>{389F8883-18A0-04CA-3E04-236E1249B881}</Project>
+      <Name>Unity.VisualScripting.Core.Player</Name>
+    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.State.Player.csproj">
       <Project>{AF672F16-4855-F3D6-E2D3-31D4586F67AF}</Project>
       <Name>Unity.VisualScripting.State.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="Unity.VisualScripting.Flow.Player.csproj">
+      <Project>{7D97E193-D7E6-90BF-F3F9-A9407FAF1AEC}</Project>
+      <Name>Unity.VisualScripting.Flow.Player</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
