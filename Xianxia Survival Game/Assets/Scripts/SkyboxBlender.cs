@@ -13,7 +13,7 @@ public class SkyboxBlender : MonoBehaviour
     public Material rainSkybox;
     public Material snowSkybox;
 
-    public float dayDuration = 120f; // Duration of a day in seconds
+    public float dayDuration = 1200f; // Duration of a day in seconds (20 minutes)
     public float weatherChangeInterval = 60f; // Interval between weather changes in seconds
     public float weatherBlendDuration = 5f; // Duration for blending weather skyboxes
 
@@ -24,7 +24,7 @@ public class SkyboxBlender : MonoBehaviour
     public float terrainHeight = 1000f; // Height of the terrain
     public float particleSpacing = 50f; // Spacing between particle systems
 
-    private float time = 0.5f; // Start at noon
+    private float time; // Initialize in Start method
     private float sunInitialIntensity;
     private float weatherTimer = 0f;
     private float weatherBlendTimer = 0f;
@@ -38,6 +38,8 @@ public class SkyboxBlender : MonoBehaviour
 
     void Start()
     {
+        // Set initial time to noon
+        time = 600f;
         sunInitialIntensity = sun.intensity;
         ChangeWeather();
 
@@ -78,19 +80,26 @@ public class SkyboxBlender : MonoBehaviour
                 }
             }
         }
+
+        // Update initial skybox and intensity
+        AdjustIntensity();
+        UpdateSkybox();
+
+        // Debug the initial time
+        Debug.Log($"Initial Time: {time}");
     }
 
     void Update()
     {
-        time += Time.deltaTime / dayDuration;
+        time += Time.deltaTime;
 
         // Loop the time of day
-        if (time >= 1f)
+        if (time >= dayDuration)
         {
             time = 0f;
         }
 
-        float angle = time * 360f;
+        float angle = (time / dayDuration) * 360f;
         sun.transform.rotation = Quaternion.Euler(new Vector3(angle - 90, 170, 0));
         AdjustIntensity();
         UpdateSkybox();
@@ -121,9 +130,9 @@ public class SkyboxBlender : MonoBehaviour
     void AdjustIntensity()
     {
         float intensityMultiplier = 1;
-        if (time <= 0.25f || time >= 0.75f) // Dawn and dusk
+        if (time <= 300f || time >= 900f) // Dawn and dusk
         {
-            intensityMultiplier = Mathf.Clamp01(1 - ((Mathf.Abs(time - 0.25f) * 4) % 1));
+            intensityMultiplier = Mathf.Clamp01(1 - ((Mathf.Abs(time - 300f) * 2 / 600f) % 1));
         }
         sun.intensity = sunInitialIntensity * intensityMultiplier;
     }
@@ -144,29 +153,29 @@ public class SkyboxBlender : MonoBehaviour
         {
             if (currentWeather == WeatherType.Sunny)
             {
-                if (time < 0.25f)
+                if (time < 300f)
                 {
                     fromSkybox = nightSkybox;
                     toSkybox = morningSkybox;
-                    blendFactor = Mathf.SmoothStep(0f, 1f, time / 0.25f);
+                    blendFactor = Mathf.SmoothStep(0f, 1f, time / 300f);
                 }
-                else if (time < 0.5f)
+                else if (time < 600f)
                 {
                     fromSkybox = morningSkybox;
                     toSkybox = noonSkybox;
-                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 0.25f) / 0.25f);
+                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 300f) / 300f);
                 }
-                else if (time < 0.75f)
+                else if (time < 900f)
                 {
                     fromSkybox = noonSkybox;
                     toSkybox = eveningSkybox;
-                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 0.5f) / 0.25f);
+                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 600f) / 300f);
                 }
                 else
                 {
                     fromSkybox = eveningSkybox;
                     toSkybox = nightSkybox;
-                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 0.75f) / 0.25f);
+                    blendFactor = Mathf.SmoothStep(0f, 1f, (time - 900f) / 300f);
                 }
             }
             else if (currentWeather == WeatherType.Rainy)
@@ -206,9 +215,9 @@ public class SkyboxBlender : MonoBehaviour
         switch (weather)
         {
             case WeatherType.Sunny:
-                if (time < 0.25f) return morningSkybox;
-                else if (time < 0.5f) return noonSkybox;
-                else if (time < 0.75f) return eveningSkybox;
+                if (time < 300f) return morningSkybox;
+                else if (time < 600f) return noonSkybox;
+                else if (time < 900f) return eveningSkybox;
                 else return nightSkybox;
             case WeatherType.Rainy:
                 return rainSkybox;

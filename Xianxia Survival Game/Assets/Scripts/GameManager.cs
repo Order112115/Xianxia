@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
     public playerController playerScript;
     public bool isPaused;
 
+    [Header("------ Inventory --------")]
+    public Inventory inventory;
+    public Item testItem;
+
 
     // Start is called before the first frame update
     void Awake()
