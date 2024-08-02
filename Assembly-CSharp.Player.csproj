@@ -879,18 +879,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player.csproj">
-      <Project>{26E1CB32-EC5E-E284-BB45-A6E9A5AD377B}</Project>
-      <Name>Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.VisualEffectGraph.Runtime.Player.csproj">
-      <Project>{088D589F-3E01-383F-2AC4-50E6FC17C0DE}</Project>
-      <Name>Unity.VisualEffectGraph.Runtime.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.Runtime.Player.csproj">
-      <Project>{93C0A59E-CA50-45E0-FAE4-7FB9BAA2C8F3}</Project>
-      <Name>Unity.RenderPipelines.Core.Runtime.Player</Name>
-    </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Core.Player.csproj">
       <Project>{389F8883-18A0-04CA-3E04-236E1249B881}</Project>
       <Name>Unity.VisualScripting.Core.Player</Name>
@@ -906,10 +894,6 @@
     <ProjectReference Include="Unity.Timeline.Player.csproj">
       <Project>{BBDFC6C0-3323-D009-2C59-B685BE7F6501}</Project>
       <Name>Unity.Timeline.Player</Name>
-    </ProjectReference>
-    <ProjectReference Include="Unity.RenderPipelines.Core.ShaderLibrary.Player.csproj">
-      <Project>{E8D73D30-D2ED-8474-01D7-9193E6639BE5}</Project>
-      <Name>Unity.RenderPipelines.Core.ShaderLibrary.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.TextMeshPro.Player.csproj">
       <Project>{1C00A672-20CF-19B5-6547-1FA09DBCE84D}</Project>
