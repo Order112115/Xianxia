@@ -221,7 +221,21 @@ public class SkyboxBlender : MonoBehaviour
 
     void ChangeWeather()
     {
-        currentWeather = (WeatherType)Random.Range(0, 3);
+        int randomValue = Random.Range(0, 7); // Random value between 0 and 6
+
+        if (randomValue == 0) // 1 in 7 chance for rain
+        {
+            currentWeather = WeatherType.Rainy;
+        }
+        else if (randomValue == 1) // 1 in 7 chance for snow
+        {
+            currentWeather = WeatherType.Snowy;
+        }
+        else // The rest is sunny
+        {
+            currentWeather = WeatherType.Sunny;
+        }
+
         UpdateWeatherEffects();
     }
 

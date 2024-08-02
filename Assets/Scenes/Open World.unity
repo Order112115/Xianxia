@@ -1378,6 +1378,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: 9ef66e5af65505c419c4092542f7858b, type: 2}
     - target: {fileID: 8635216846824151651, guid: fe00b819909ffc245a0e9d2d41ef82a7, type: 3}
+      propertyPath: dayDuration
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 8635216846824151651, guid: fe00b819909ffc245a0e9d2d41ef82a7, type: 3}
       propertyPath: blendDuration
       value: 2
       objectReference: {fileID: 0}
@@ -1395,7 +1399,7 @@ PrefabInstance:
       objectReference: {fileID: 4818286805061794247, guid: 7d75e7cc604b44944b45a02068e93508, type: 3}
     - target: {fileID: 8635216846824151651, guid: fe00b819909ffc245a0e9d2d41ef82a7, type: 3}
       propertyPath: weatherChangeInterval
-      value: 10
+      value: 121
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
