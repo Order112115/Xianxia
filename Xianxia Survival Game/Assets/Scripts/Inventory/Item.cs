@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
-public class Item
+[CreateAssetMenu(menuName = "Scriptable Objects/Item")]
+public class Item : ScriptableObject
 {
-    public string itemName;
-    public Sprite itemIcon;
-    public int itemID;
+    public Sprite sprite;
+    public SlotTag itemTag;
+
+    [Header("If the item can be equipped")]
+    public GameObject equipmentPrefab;
 }

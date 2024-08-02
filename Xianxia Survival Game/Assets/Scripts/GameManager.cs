@@ -27,10 +27,7 @@ public class GameManager : MonoBehaviour
     public playerController playerScript;
     public bool isPaused;
 
-    [Header("------ Inventory --------")]
-    public Inventory inventory;
-    public Item testItem;
-
+    //[Header("------ Inventory --------")]
 
     // Start is called before the first frame update
     void Awake()
@@ -45,18 +42,20 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetButtonDown("Cancel"))
         {
-            statePause();
-
-        }
-        else
-        {
-            stateUnpause();
+            if (isPaused)
+            {
+                stateUnpause();
+            }
+            else
+            {
+                statePause();
+            }
         }
     }
 
     public void statePause()
     {
-        isPaused = !isPaused;
+        isPaused = true;
         Time.timeScale = 0;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
@@ -64,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     public void stateUnpause()
     {
-        isPaused = !isPaused;
+        isPaused = false;
         Time.timeScale = 1;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
